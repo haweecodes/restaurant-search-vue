@@ -1,7 +1,22 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-  </div>
+  <section>
+    <v-container>
+      <v-row>
+        <v-col md="4" v-for="(category, i) in categories" :key="i"
+          class="d-flex justify-center align-center">
+          <v-sheet
+            color="white"
+            elevation="2"
+            height="200"
+            width="400"
+            class="d-flex justify-center align-center"
+          >
+            <p class="title">{{category.name}}</p>
+          </v-sheet>
+        </v-col>
+      </v-row>
+    </v-container>
+  </section>
 </template>
 
 <script lang="ts">
@@ -11,5 +26,13 @@ import { Component, Vue } from 'vue-property-decorator';
   components: {
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  async beforeMount() {
+    await this.$store.dispatch('getCategories');
+  }
+
+  get categories() {
+    return this.$store.state.categoryResult;
+  }
+}
 </script>

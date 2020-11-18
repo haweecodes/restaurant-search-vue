@@ -1,7 +1,10 @@
 <template>
-  <v-text-field v-model="searchText" placeholder="Search your restaurant"
-    append-icon="search"
-    outlined @keyup.enter="searchRestaurant"></v-text-field>
+  <section>
+    <v-container>
+      <v-row>
+      </v-row>
+    </v-container>
+  </section>
 </template>
 
 <script>
@@ -14,13 +17,8 @@ export default class SearchComponent extends Vue {
   searchText = '';
 
   // Methods will be component methods
-  searchRestaurant() {
-    this.$router.push({ name: 'Result', query: { query: this.searchText } });
-    // search api
-  }
 }
 </script>
 
 <style>
-
 </style>
