@@ -16,12 +16,12 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "result" */ '../views/SearchResultViewer.vue'),
   },
   {
-    path: '/restaurant/:id',
+    path: '/restaurant/',
     name: 'ViewDetail',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ViewDetail.vue'),
+    component: () => import(/* webpackChunkName: "detail" */ '../views/ViewDetail.vue'),
   },
 ];
 

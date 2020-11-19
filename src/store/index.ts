@@ -15,6 +15,8 @@ export default new Vuex.Store({
   state: {
     searchResult: [] as any,
     categoryResult: [] as any,
+    selectedRestaurant: '' as string,
+    menu: [] as any,
   },
   mutations: {
     setResult(state, payload) {
@@ -29,36 +31,50 @@ export default new Vuex.Store({
         state.categoryResult.push(item.categories);
       });
     },
+    setRestaurant(state, payload) {
+      state.selectedRestaurant = payload;
+    },
+    setMenu(state, payload) {
+      state.menu = payload;
+    },
   },
   actions: {
-    searchRestaurant(context, payload) {
-      instance.get(`/search?q=${payload}`)
-        .then((response: any) => {
-        // handle success
-          context.commit('setResult', response.data.restaurants);
-        })
-        .catch((error: any) => {
-        // handle error
-          console.log(error);
-        })
-        .then(() => {
-        // always executed
-        });
+    async searchRestaurant(context, payload) {
+      try {
+        await instance.get(`/search?entity_id=84&entity_type=city&q=${payload}&order=asc`)
+          .then((response: any) => {
+          // handle success
+            context.commit('setResult', response.data.restaurants);
+          })
+          .catch((error: any) => {
+          // handle error
+            console.log(error);
+          });
+      } catch (err) {
+        console.log(err);
+      }
     },
-    getCategories(context) {
-      instance.get('/categories')
-        .then((response: any) => {
-        // handle success
-          console.log(response);
-          context.commit('setCategory', response.data.categories);
-        })
-        .catch((error: any) => {
-        // handle error
-          console.log(error);
-        })
-        .then(() => {
-        // always executed
-        });
+    async getCategories(context) {
+      try {
+        await instance.get('/categories')
+          .then((response: any) => {
+          // handle success
+            context.commit('setCategory', response.data.categories);
+          })
+          .catch((error: any) => {
+          // handle error
+            console.log(error);
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    async getDailyMenu(context, payload) {
+      const response = await instance.get(`/dailymenu?res_id=${payload}`)
+        .then((res: any) => res)
+        .catch((error: any) => error.response);
+
+      return response;
     },
   },
   modules: {
