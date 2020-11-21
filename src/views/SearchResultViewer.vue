@@ -17,7 +17,7 @@
           </p>
         </v-col>
       </v-row>
-      <v-row>
+      <v-row v-if="getSearchResult.length > 0">
         <v-col md="3" v-for="(restaurant, i) in getSearchResult" :key="i">
           <v-card
             class="mx-auto"
@@ -61,6 +61,13 @@
             </v-card-actions>
           </v-card>
         </v-col>
+      </v-row>
+      <v-row v-else>
+        <v-col xs='12'>
+        <v-banner class='text-center error white--text'>
+          No data to show
+        </v-banner>
+      </v-col>
       </v-row>
     </v-container>
     <v-container v-else class="d-flex justify-center align-center">
