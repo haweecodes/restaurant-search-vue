@@ -1,6 +1,7 @@
 <template>
   <v-text-field v-model="searchText" placeholder="Search your restaurant"
     append-icon="search"
+    @click:append="searchRestaurant"
     outlined @keyup.enter="searchRestaurant"></v-text-field>
 </template>
 
