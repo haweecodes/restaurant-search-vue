@@ -114,7 +114,8 @@ export default class SearchComponent extends Vue {
 
   // eslint-disable-next-line class-methods-use-this
   showDetails(details) {
-    this.$store.commit('setRestaurant', details);
+    // this.$store.commit('setRestaurant', details);
+    localStorage.setItem('restaurant', JSON.stringify(details));
     this.$router.push({ name: 'ViewDetail' });
   }
 }

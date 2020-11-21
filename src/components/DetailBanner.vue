@@ -1,7 +1,7 @@
 <template>
   <v-banner>
     <v-row>
-      <v-col md="9" xs="12">
+      <v-col md="7" lg="8">
         <h1>{{ restaurant.name }}</h1>
         <div id="rating-container" class="d-flex align-center">
           <v-rating
@@ -37,7 +37,7 @@
           />
         </div>
       </v-col>
-      <v-col md="3">
+      <v-col md="5" lg="4">
         <v-card
           outlined
           height="100%"

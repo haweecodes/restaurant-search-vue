@@ -8,7 +8,7 @@
               <v-icon>home</v-icon>
             </v-btn>
           </v-col>
-          <v-col md="4" offset-md="3" sm="8">
+          <v-col md="6" offset-md="2" lg="6" offset-lg="2" sm="11">
             <SearchComponent />
           </v-col>
         </v-row>

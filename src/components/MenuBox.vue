@@ -11,7 +11,9 @@
       </v-col>
       <v-col
         cols='12'
-        md='2'
+        md='4'
+        lg="3"
+        xl="3"
         xs='12'
         v-for='(dish, i) in menuObj.dishes'
         :key='i'

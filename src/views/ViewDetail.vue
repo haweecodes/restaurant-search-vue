@@ -141,7 +141,8 @@ export default class SearchComponent extends Vue {
   ];
 
   beforeMount() {
-    this.restaurant = this.$store.state.selectedRestaurant;
+    this.restaurant = JSON.parse(localStorage.getItem('restaurant'));
+    // this.restaurant = this.$store.state.selectedRestaurant;
 
     // this.topReviews = this.restaurant.all_reviews.reviews.slice(0, 4);
   }

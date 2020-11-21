@@ -12,8 +12,9 @@
     </v-chip>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+<script>
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
 // Define the component in class-style
 @Component({
