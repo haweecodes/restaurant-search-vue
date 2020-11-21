@@ -44,9 +44,7 @@
       </v-row>
       <v-row v-else>
         <v-col xs="12">
-           <v-banner  class="text-center">
-            No Reviews Available
-          </v-banner>
+          <NotFound :message="notFoundMsg" />
         </v-col>
       </v-row>
     <!-- <v-row>
@@ -96,7 +94,11 @@ import Component from 'vue-class-component';
 // Define the component in class-style
 @Component({
   props: ['reviews'],
+  components: {
+    NotFound: () => import('@/components/NotFound.vue'),
+  },
 })
 export default class ReviewBox extends Vue {
+  notFoundMsg = 'No Reviews Available'
 }
 </script>

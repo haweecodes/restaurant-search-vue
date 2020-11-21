@@ -64,9 +64,7 @@
       </v-row>
       <v-row v-else>
         <v-col xs='12'>
-        <v-banner class='text-center error white--text'>
-          No data to show
-        </v-banner>
+          <NotFound :message="notFoundMsg"/>
       </v-col>
       </v-row>
     </v-container>
@@ -87,11 +85,17 @@ import Component from 'vue-class-component';
 import EventBus from '@/plugins/eventbus';
 
 // Define the component in class-style
-@Component
+@Component({
+  components: {
+    NotFound: () => import('@/components/NotFound.vue'),
+  },
+})
 export default class SearchComponent extends Vue {
   searchText = this.$router.currentRoute.query.query;
 
   loader = false;
+
+  notFoundMsg = 'No data to show'
 
   beforeMount() {
     this.loader = true;

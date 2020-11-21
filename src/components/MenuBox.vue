@@ -40,9 +40,7 @@
     </v-row>
     <v-row v-else>
       <v-col xs='12'>
-        <v-banner class='text-center error white--text'>
-          No Daily Menu Available
-        </v-banner>
+        <NotFound :message="notFoundMsg"/>
       </v-col>
     </v-row>
   </v-container>
@@ -65,9 +63,14 @@ import Component from 'vue-class-component';
       return value;
     },
   },
+  components: {
+    NotFound: () => import('@/components/NotFound.vue'),
+  },
 })
 export default class MenuBox extends Vue {
   notAvailable = false;
+
+  notFoundMsg = 'No Daily Menu Available'
 
   /* eslint-disable @typescript-eslint/camelcase */
   menuObj = {};

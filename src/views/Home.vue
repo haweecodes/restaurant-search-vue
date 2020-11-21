@@ -19,13 +19,11 @@
   </section>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+<script>
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-@Component({
-  components: {
-  },
-})
+@Component
 export default class Home extends Vue {
   async beforeMount() {
     await this.$store.dispatch('getCategories');
