@@ -3,7 +3,7 @@
     <v-main>
       <v-container>
         <v-row>
-          <v-col sm="1">
+          <v-col cols="1">
             <v-btn icon to="/">
               <v-icon>home</v-icon>
             </v-btn>

@@ -2,13 +2,13 @@
   <section>
     <v-container v-if="loader">
       <v-row>
-        <v-col md="1">
+        <v-col md="2" lg="1">
           <v-btn to="/" outlined>
               <v-icon>keyboard_backspace</v-icon>
               Go Back
             </v-btn>
         </v-col>
-        <v-col md="4" class="d-flex align-center">
+        <v-col md="4" sm="4" class="d-flex align-center">
           <p class="mb-0">Showing {{getSearchResult.length}}
             <span class="green--text font-weight-black">
               {{searchText}}
